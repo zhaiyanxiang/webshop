@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script>
+    /*replace方法的语法是：stringObj.replace(rgExp, replaceText)
+    其中stringObj是字符串(string),
+    reExp可以是正则表达式对象(RegExp)也可以是字符串(string)，
+    replaceText是替代查找到的字符串*/
+
+    var stringObj="终古人民共和国，终古人民";
+    //方法1
+    var newstr=stringObj.replace("终古","中国");
+    alert(newstr);   //只能变换一个地方，终古人民没有变换
+    //方法2
+    var reg=new RegExp("终古","g"); //创建正则RegExp对象
+    var newstr=stringObj.replace(reg,"中国");
+    alert(newstr);
+
+    /*去掉字符串左右所有空格：
+    如果使用jQuery直接使用$.trim(str)方法即可，
+    str表示要去掉左右所有空格的字符串。*/
+    function Trim(str) {
+     return str.replace(/(^\s*)|(\s*$)/g, "");
+     }/*^表示从头开始，*匹配*前面的字符0次或n次。
+     $匹配最末的字符。匹配+号前面的字符1次或n次。等价于{1,}。*/
+     //去左空格;
+    function sLTrim(s){
+    return s.replace(/(^s*)/g, "");
+    }//去右空格;
+    function sRTrim(s){
+    return s.replace(/(s*$)/g, "");
+    }
+    //删除所有空格,包括字符串中间的
+    var str = "  ssss  ddadf     ";
+    var re = str.replace(/\s+/g,"");
+    alert(re);
+
+    /*String.prototype.indexOf方法：
+    如果包含子串，则返回大于等于0的索引，否则返回-1，
+    indexOf()方法可返回某个指定的字符串值在字符串中首次出现的位置*/
+    var str = "My blog name is Benjamin",
+    var substr = "Benjamin";
+    function isContains(str, substr) {
+    return str.indexOf(substr) >= 0;
+    }
+    //结果为true
+    /*String.prototype.search方法：
+    search() 方法用于检索字符串中指定的子字符串，
+    或检索与正则表达式相匹配的子字符串。
+    test() 方法用于检测一个字符串是否匹配某个模式.
+    */
+    var str = "My blog name is Benjamin",
+    substr = "Benjamin";
+    function isContains(str, substr) {
+    return new RegExp(substr).test(str);
+    }
+    //结果为true
+    </script>
+    <scritp type="text/css">
+         #abc{fsd;
+              }
+    </scritp>
+
+</head>
+<body>
+<form src="__SELF__" method="post">
+    <input type="text" value="100" />
+    <input type="submit" value="提交" />
+</form>
+</body>
+</html>
